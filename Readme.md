@@ -11,6 +11,7 @@ A modern, responsive developer portfolio built with **Next.js**, **Tailwind CSS*
 
 This project serves as a central hub for my work, highlighting the applications I’ve built, the technologies I work with, and my development journey.
 
+
 ---
 
 # Preview
