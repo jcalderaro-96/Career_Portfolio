@@ -1,45 +1,47 @@
 import React, { useRef } from "react";
-import {
-  motion,
-  useScroll,
-} from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
-
 
 const Details = ({ position, company, companyLink, time, address, work }) => {
   const ref = useRef(null);
+
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-start justify-between md:w-[80%]"
+      className="my-8 first:mt-0 last:mb-0 mx-auto flex w-[60%] flex-col items-start justify-between md:w-[80%]"
     >
       <LiIcon reference={ref} />
+
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
       >
-        <h3 className="capitalize font-bold text-2xl sm:text-xl xs:text-lg">
+        <h3 className="text-xl font-bold capitalize sm:text-lg xs:text-base">
           {position}{" "}
           <a
             className="capitalize text-primary dark:text-primaryDark"
             href={companyLink}
-            target={"_blank"}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             @{company}
           </a>
         </h3>
-        <span className="capitalize text-dark/75 font-medium dark:text-light/50 xs:text-sm">
+
+        <span className="font-medium capitalize text-dark/75 dark:text-light/50 xs:text-sm">
           {time} | {address}
         </span>
-        <p className="font-medium w-full md:text-sm"> {work}</p>
+
+        <p className="w-full font-medium leading-relaxed text-dark/80 dark:text-light/80 md:text-sm">
+          {work}
+        </p>
       </motion.div>
     </li>
   );
 };
 
 const Experience = () => {
-
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -48,75 +50,58 @@ const Experience = () => {
   });
 
   return (
+    <div className="my-40 md:my-28">
+      <h2 className="mb-20 w-full text-center text-6xl font-bold md:text-5xl sm:text-4xl">
+        Relevant Experience
+      </h2>
 
-      <div className="my-64">
-        <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
-          Experience
-        </h2>
+      <div ref={ref} className="relative mx-auto w-[75%] lg:w-[90%] md:w-full">
+        <motion.div
+          className="absolute left-9 top-0 h-full w-[4px] origin-top bg-dark
+          dark:bg-primaryDark dark:shadow-3xl md:left-[30px] md:w-[2px] xs:left-[20px]"
+          style={{ scaleY: scrollYProgress }}
+        />
 
-        <div ref={ref} className="relative w-[75%] mx-auto lg:w-[90%] md:w-full">
-          <motion.div
-            className="absolute left-9 top-0 w-[4px] md:w-[2px] md:left-[30px] xs:left-[20px] h-full bg-dark 
-            origin-top  dark:bg-primaryDark dark:shadow-3xl"
-            style={{ scaleY: scrollYProgress }}
+        <ul className="ml-4 flex w-full flex-col items-start justify-between xs:ml-2">
+          <Details
+            position="Full-Stack Web Development Student"
+            company="UC Irvine Division of Continuing Education"
+            companyLink="https://ce.uci.edu/"
+            time="Nov 2024 – June 2025"
+            address="Online (Part-Time)"
+            work="Completed an 8-month immersive coding program focused on front-end and back-end web development. Built and deployed multiple responsive, full-stack web applications using React, JavaScript, Node.js, and MongoDB, while applying concepts in API integration, database design, and user experience through weekly challenges and capstone projects."
           />
-          <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
-            <Details
-              position="Software Engineer"
-              company="Google"
-              companyLink="https://google.com"
-              time="2022-Present"
-              address="Mountain View, CA"
-              work="Worked on a team responsible for developing new features for Google's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization."
-            />
 
-            <Details
-              position="Intern"
-              company="Facebook"
-              companyLink="https://facebook.com"
-              time="Summer 2021"
-              address="Menlo Park, CA."
-              work="Worked on a team responsible for developing a new mobile app
-              feature that allowed users to create and share short-form video
-              content, including designing and implementing a new user interface
-              and developing the backend infrastructure to support the feature."
-            />
+          <Details
+            position="Data Analyst & Lead Coach"
+            company="Bramble Esports"
+            companyLink="https://twitter.com/"
+            time="Jan 2018 – May 2020"
+            address="Remote"
+            work="Led a competitive League of Legends team from formation to a 12+ player roster, supporting recruitment, coaching, and match preparation. Analyzed player performance data, developed individualized training plans, and managed community operations through scheduling, communication, and team coordination."
+          />
 
-            <Details
-              position="Software Developer"
-              company="Amazon"
-              companyLink="https://amazon.com"
-              time="2020-2021"
-              address="Seattle, WA."
-              work="Worked on a team responsible for developing Amazon's mobile app, including implementing new features such as product recommendations and user reviews, and optimizing the app's performance and reliability."
-            />
+          <Details
+            position="Barista / Busser"
+            company="Starbucks / Round Hill Country Club"
+            companyLink="https://www.starbucks.com/"
+            time="March 2016 – July 2020"
+            address="Danville / Alamo, CA"
+            work="Delivered high-volume customer service with strong attention to detail and teamwork in fast-paced environments. Maintained accuracy and efficiency during peak hours while supporting team operations and customer satisfaction."
+          />
 
-            <Details
-              position="Software Developer Intern"
-              company="Microsoft"
-              companyLink="https://microsoft.com"
-              time="Summer 2019"
-              address="Redmond, WA."
-              work="Worked on a team responsible for developing new features for
-              Microsoft's Windows operating system, including implementing a new
-              user interface for a system settings panel and optimizing the
-              performance of a core system component."
-            />
-
-            <Details
-              position="Teaching Assistant"
-              company="MIT"
-              companyLink="https://mit.edu"
-              time="Fall 2018"
-              address="Massachusetts Ave, Cambridge, MA."
-              work="Assisted in teaching a course on computer programming, held office
-              hours to help students with assignments, and graded exams and
-              assignments."
-            />
-          </ul>
-        </div>
-        </div>
-    );
+          <Details
+            position="Data Analyst Intern"
+            company="Roche"
+            companyLink="https://www.roche.com/"
+            time="June 2014 – July 2014"
+            address="Basel, Switzerland"
+            work="Researched and presented market data on Japan’s pharmaceutical sector to support strategy and global team insights. Strengthened experience in analysis, reporting, and communicating findings clearly to a broader team."
+          />
+        </ul>
+      </div>
+    </div>
+  );
 };
 
 export default Experience;
