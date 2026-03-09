@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+
 import proj1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
 import proj2 from "../../public/images/projects/nft-collection-website-cover-image.jpg";
 import proj3 from "../../public/images/projects/fashion-studio-website.jpg";
@@ -14,70 +15,73 @@ import proj6 from "../../public/images/projects/devdreaming.jpg";
 
 const FramerImage = motion(Image);
 
-const FeaturedProject = ({ type, title, summary, img, link, github }) => {
+const CapstoneProject = ({ type, title, summary, img, link, github }) => {
   return (
     <article
-      className="relative flex w-full items-center  justify-between rounded-3xl rounded-br-2xl border
-border-solid border-dark bg-light p-12 shadow-2xl  dark:border-light dark:bg-dark  lg:flex-col 
-lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4 
-    "
+      className="relative flex w-full items-center justify-between rounded-3xl rounded-br-2xl
+      border border-solid border-dark bg-light p-10
+      shadow-[0_12px_30px_rgba(0,0,0,0.12)] dark:border-light dark:bg-dark
+      dark:shadow-[0_12px_30px_rgba(255,255,255,0.05)]
+      lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4"
     >
       <div
-        className="absolute  top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl bg-dark
-         dark:bg-light  xs:-right-2 xs:h-[102%] xs:w-[100%]
-        xs:rounded-[1.5rem] "
+        className="absolute top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl
+        bg-dark dark:bg-light xs:-right-2 xs:h-[102%] xs:w-[100%] xs:rounded-[1.5rem]"
       />
 
       <Link
         href={link}
-        target={"_blank"}
+        target="_blank"
         className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
       >
         <FramerImage
           src={img}
           className="h-auto w-full"
           alt={title}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.03 }}
           transition={{ duration: 0.2 }}
           sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+          (max-width: 1200px) 50vw,
+          33vw"
           priority
         />
       </Link>
-      <div className="flex w-1/2 flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6">
-        <span className="text-xl font-medium text-primary dark:text-primaryDark xs:text-base">
+
+      <div className="flex w-1/2 flex-col items-start justify-between pl-8 lg:w-full lg:pl-0 lg:pt-6">
+        <span className="text-lg font-semibold text-primary dark:text-primaryDark md:text-base">
           {type}
         </span>
+
         <Link
           href={link}
-          target={"_blank"}
-          className="underline-offset-2 hover:underline"
+          target="_blank"
+          className="underline-offset-4 hover:underline"
         >
-          <h2 className="my-2 w-full text-left text-4xl font-bold lg:text-3xl xs:text-2xl">
+          <h2 className="my-3 w-full text-left text-4xl font-bold lg:text-3xl sm:text-2xl">
             {title}
           </h2>
         </Link>
-        <p className=" my-2 rounded-md font-medium text-dark dark:text-light sm:text-sm">
+
+        <p className="my-2 text-lg font-medium leading-relaxed text-dark/80 dark:text-light/80 md:text-base sm:text-sm">
           {summary}
         </p>
-        <div className="mt-2 flex items-center">
+
+        <div className="mt-4 flex items-center">
           <Link
             href={github}
-            target={"_blank"}
+            target="_blank"
             className="w-10"
-            aria-label="Crypto Screener Application github link"
+            aria-label={`${title} github link`}
           >
             <GithubIcon />
           </Link>
+
           <Link
             href={link}
-            target={"_blank"}
-            className="ml-4 rounded-lg
-             bg-dark p-2 px-6 text-lg font-semibold text-light dark:bg-light dark:text-dark 
-             sm:px-4 sm:text-base
-            "
-            aria-label="Crypto Screener Application"
+            target="_blank"
+            className="ml-4 rounded-lg bg-dark px-6 py-2 text-lg font-semibold text-light
+            dark:bg-light dark:text-dark sm:px-4 sm:text-base"
+            aria-label={title}
           >
             Visit Project
           </Link>
@@ -87,66 +91,70 @@ lg:p-8 xs:rounded-2xl  xs:rounded-br-3xl xs:p-4
   );
 };
 
-const Project = ({ title, type, img, link, github }) => {
+const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   return (
     <article
-      className="relative flex w-full flex-col items-center justify-center rounded-2xl  rounded-br-2xl 
-      border  border-solid  border-dark bg-light p-6  shadow-2xl dark:border-light dark:bg-dark 
-      xs:p-4
-      "
+      className="relative flex w-full flex-col items-center justify-center rounded-2xl rounded-br-2xl
+      border border-solid border-dark bg-light p-6
+      shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:border-light dark:bg-dark
+      dark:shadow-[0_8px_24px_rgba(255,255,255,0.04)] xs:p-4"
     >
       <div
-        className="absolute  top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl bg-dark
-         dark:bg-light  md:-right-2 md:w-[101%] xs:h-[102%]
-        xs:rounded-[1.5rem]  "
+        className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl
+        bg-dark dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]"
       />
 
       <Link
         href={link}
-        target={"_blank"}
+        target="_blank"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage
           src={img}
           alt={title}
           className="h-auto w-full"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.03 }}
           transition={{ duration: 0.2 }}
           sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+          (max-width: 1200px) 50vw,
+          33vw"
         />
       </Link>
-      <div className="mt-4 flex w-full flex-col items-start justify-between">
-        <span className="text-xl font-medium text-primary dark:text-primaryDark lg:text-lg md:text-base">
+
+      <div className="mt-5 flex w-full flex-col items-start justify-between">
+        <span className="text-base font-semibold text-primary dark:text-primaryDark">
           {type}
         </span>
 
         <Link
           href={link}
-          target={"_blank"}
-          className="underline-offset-2 hover:underline"
+          target="_blank"
+          className="underline-offset-4 hover:underline"
         >
-          <h2 className="my-2 w-full text-left text-3xl font-bold lg:text-2xl ">
+          <h2 className="my-2 w-full text-left text-2xl font-bold lg:text-xl">
             {title}
           </h2>
         </Link>
-        <div className="flex w-full items-center  justify-between">
+
+        <p className="mt-2 text-base font-medium leading-relaxed text-dark/80 dark:text-light/80 sm:text-sm">
+          {summary}
+        </p>
+
+        <div className="mt-4 flex w-full items-center justify-between">
           <Link
             href={link}
-            target={"_blank"}
-            className="rounded text-lg
-            font-medium underline md:text-base
-            "
+            target="_blank"
+            className="text-lg font-semibold underline underline-offset-4 md:text-base"
             aria-label={title}
           >
-            Visit
+            Visit Project
           </Link>
+
           <Link
             href={github}
-            target={"_blank"}
+            target="_blank"
             className="w-8 md:w-6"
-            aria-label={title}
+            aria-label={`${title} github link`}
           >
             <GithubIcon />
           </Link>
@@ -156,84 +164,162 @@ const Project = ({ title, type, img, link, github }) => {
   );
 };
 
+const ProjectListItem = ({ title, summary, status, link }) => {
+  return (
+    <motion.li
+      initial={{ y: 60 }}
+      whileInView={{ y: 0, transition: { duration: 0.4, ease: "easeInOut" } }}
+      viewport={{ once: true }}
+      className="relative my-3 flex w-full items-start justify-between rounded-xl border border-solid border-dark
+      bg-light px-6 py-6 text-dark dark:border-light dark:bg-dark dark:text-light
+      md:flex-col md:gap-3"
+    >
+      <div className="w-[78%] md:w-full">
+        <Link href={link} className="underline-offset-4 hover:underline">
+          <h3 className="text-xl font-bold md:text-lg sm:text-base">{title}</h3>
+        </Link>
+        <p className="mt-2 text-base font-medium leading-relaxed text-dark/80 dark:text-light/80 sm:text-sm">
+          {summary}
+        </p>
+      </div>
+
+      <span className="min-w-max pl-4 text-base font-semibold text-primary dark:text-primaryDark md:pl-0 md:text-sm">
+        {status}
+      </span>
+    </motion.li>
+  );
+};
+
 export default function Projects() {
   return (
     <>
       <Head>
-        <title>Modern Portfolio Built with Nextjs | Projects Page</title>
+        <title>Projects | Jonathan Calderaro</title>
         <meta
           name="description"
-          content="Discover the latest webapp projects created by CodeBucks, a Next.js developer with 
-        expertise in React.js and full-stack development. Browse software engineering articles and tutorials for tips on creating your own portfolio."
+          content="Browse development projects by Jonathan Calderaro, including featured builds, UI-focused work, and in-progress portfolio pieces."
         />
       </Head>
 
-      <main
-        className={`mb-16  flex w-full flex-col items-center justify-center dark:text-light`}
-      >
-        <Layout className="pt-16">
+      <main className="mb-16 flex w-full flex-col items-center justify-center dark:text-light">
+        <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
+          <div className="mb-10 h-px w-full bg-dark/20 dark:bg-light/30" />
+
           <AnimatedText
-            text="Imagination Trumps Knowledge!"
-            className="mb-16 !text-8xl !leading-tight lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
+            text="Projects That Reflect How I Build"
+            className="mb-16 !text-8xl !leading-tight lg:!text-7xl md:!text-6xl sm:mb-8 sm:!text-5xl xs:!text-4xl"
           />
-          <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
-            <div className="col-span-12">
-              <FeaturedProject
-                type="Featured Project"
-                title="Crypto Screener Application"
-                summary="A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency."
-                img={proj1}
-                link="https://devdreaming.com/videos/build-crypto-screener-app-with-react-tailwind-css"
-                github="https://github.com/codebucks27/CryptoBucks-Final-Code"
-              />
+
+          {/* Capstone */}
+          <section className="w-full">
+            <div className="mb-10">
+              <h2 className="text-6xl font-bold md:text-5xl sm:text-4xl">
+                Capstone Project
+              </h2>
+              <p className="mt-4 max-w-3xl text-lg font-medium leading-relaxed text-dark/75 dark:text-light/75 md:text-base sm:text-sm">
+                A larger build intended to represent the strongest combination
+                of frontend structure, responsive design, and practical
+                implementation in my portfolio.
+              </p>
             </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Website Template"
-                title="NFT collection Website"
+
+            <CapstoneProject
+              type="Capstone Build"
+              title="Primary Portfolio Project Placeholder"
+              summary="This section is reserved for my strongest completed project. It will highlight the project’s purpose, the technologies used, the problems it solves, and the decisions that best reflect how I approach frontend development and product structure."
+              img={proj1}
+              link="#"
+              github="#"
+            />
+          </section>
+
+          <div className="my-16 h-px w-full bg-dark/20 dark:bg-light/30" />
+
+          {/* Featured Secondary */}
+          <section className="w-full">
+            <div className="mb-10 flex w-full items-end justify-between gap-6 md:flex-col md:items-start">
+              <div>
+                <h2 className="text-6xl font-bold md:text-5xl sm:text-4xl">
+                  Featured Projects
+                </h2>
+                <p className="mt-4 max-w-3xl text-lg font-medium leading-relaxed text-dark/75 dark:text-light/75 md:text-base sm:text-sm">
+                  Additional projects that showcase responsive UI work,
+                  component structure, and practical frontend problem solving.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid w-full grid-cols-2 gap-10 lg:grid-cols-1">
+              <FeaturedProject
+                type="Featured Build"
+                title="Secondary Project Placeholder One"
+                summary="Reserved for a polished project that demonstrates clean interface design, stronger component organization, and real development workflow."
                 img={proj2}
-                link="https://devdreaming.com/videos/create-nft-collection-website-reactjs"
-                github="https://github.com/codebucks27/The-Weirdos-NFT-Website-Starter-Code"
+                link="#"
+                github="#"
               />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Website"
-                title="Fashion Studio Website"
-                img={proj3}
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
-              />
-            </div>
-            <div className="col-span-12">
+
               <FeaturedProject
-                type="Portfolio Website"
-                title="React Portfolio Website"
-                summary="A professional portfolio website using React JS, Framer-motion, and Styled-components. It has smooth page transitions, cool background effects, unique design and it is mobile responsive."
-                img={proj4}
-                link="https://devdreaming.com/videos/build-stunning-portfolio-website-react-js-framer-motion"
-                github="https://github.com/codebucks27/react-portfolio-final"
+                type="Featured Build"
+                title="Secondary Project Placeholder Two"
+                summary="Reserved for a supporting project that adds range to the portfolio and highlights additional technical or design strengths."
+                img={proj3}
+                link="#"
+                github="#"
               />
             </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Website Template"
-                img={proj5}
-                title="Agency Website Template"
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
+          </section>
+
+          <div className="my-16 h-px w-full bg-dark/20 dark:bg-light/30" />
+
+          {/* Additional Projects List */}
+          <section className="w-full">
+            <h2 className="text-6xl font-bold text-center md:text-5xl sm:text-4xl">
+              Additional Projects
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-3xl text-center text-lg font-medium leading-relaxed text-dark/75 dark:text-light/75 md:text-base sm:text-sm">
+              A running list of additional builds, experiments, and smaller
+              projects that contribute to the overall portfolio.
+            </p>
+
+            <ul className="mt-12 flex w-full flex-col items-center">
+              <ProjectListItem
+                title="Project Placeholder Three"
+                summary="A smaller project focused on interface structure, state handling, and clean component composition."
+                status="Planned"
+                link="#"
               />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Blog Website"
-                img={proj6}
-                title="DevDreaming"
-                link="https://devdreaming.com"
-                github="https://github.com/codebucks27"
+
+              <ProjectListItem
+                title="Project Placeholder Four"
+                summary="A build intended to show practical frontend problem solving and stronger responsiveness across screen sizes."
+                status="Planned"
+                link="#"
               />
-            </div>
-          </div>
+
+              <ProjectListItem
+                title="Project Placeholder Five"
+                summary="A smaller supporting project that will help round out the portfolio with another real-world use case."
+                status="Planned"
+                link="#"
+              />
+
+              <ProjectListItem
+                title="Project Placeholder Six"
+                summary="An experimental or utility-focused build that demonstrates continued growth, iteration, and technical curiosity."
+                status="Planned"
+                link="#"
+              />
+
+              <ProjectListItem
+                title="Project Placeholder Seven"
+                summary="A future project slot reserved for another completed build once additional portfolio work is ready to be showcased."
+                status="Planned"
+                link="#"
+              />
+            </ul>
+          </section>
         </Layout>
       </main>
     </>
