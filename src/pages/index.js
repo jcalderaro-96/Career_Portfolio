@@ -20,15 +20,24 @@ export default function Home() {
 
       <article className="flex min-h-screen items-center text-dark dark:text-light sm:items-start">
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
-          <div className="flex w-full items-start justify-between md:flex-col">
-            <div className="w-1/2 lg:hidden md:inline-block md:w-full">
-              <Image
-                src={profilePic}
-                alt="Jonathan Calderaro portrait"
-                className="h-auto w-full"
-                sizes="100vw"
-                priority
-              />
+          <div className="flex w-full items-start justify-between md:flex-col md:gap-12">
+            <div className="flex w-1/2 justify-center lg:hidden md:inline-block md:w-full">
+              <div
+                className="relative w-[80%] h-max rounded-2xl border-2 border-solid border-dark 
+                bg-light p-4 dark:border-light dark:bg-dark"
+              >
+                <div
+                  className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl 
+                  bg-dark dark:bg-light"
+                />
+                <Image
+                  src={profilePic}
+                  alt="Jonathan Calderaro portrait"
+                  className="h-auto w-full rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                  priority
+                />
+              </div>
             </div>
 
             <div className="flex w-1/2 flex-col items-start self-center lg:w-full lg:items-center lg:text-center">
