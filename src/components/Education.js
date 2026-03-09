@@ -4,22 +4,30 @@ import AboutIcon from "./LiIcon";
 
 const Details = ({ type, time, place, info }) => {
   const ref = useRef(null);
+
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-start justify-between md:w-[80%]"
+      className="my-8 first:mt-0 last:mb-0 mx-auto flex w-[60%] flex-col items-start justify-between md:w-[80%]"
     >
       <AboutIcon reference={ref} />
+
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
       >
-        <h3 className="capitalize font-bold text-2xl sm:text-xl xs:text-lg">{type}</h3>
-        <span className="capitalize text-dark/75 font-medium dark:text-light/50 xs:text-sm">
+        <h3 className="text-xl font-bold capitalize sm:text-lg xs:text-base">
+          {type}
+        </h3>
+
+        <span className="font-medium capitalize text-dark/75 dark:text-light/50 xs:text-sm">
           {time} | {place}
         </span>
-        <p className="font-medium w-full md:text-sm">{info}</p>
+
+        <p className="w-full font-medium leading-relaxed text-dark/80 dark:text-light/80 md:text-sm">
+          {info}
+        </p>
       </motion.div>
     </li>
   );
@@ -34,34 +42,38 @@ const Education = () => {
   });
 
   return (
-    <div className="my-64">
-      <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">Education</h2>
+    <div className="my-40 md:my-28">
+      <h2 className="mb-20 w-full text-center text-6xl font-bold md:text-5xl sm:text-4xl">
+        Education & Training
+      </h2>
 
-      <div ref={ref} className="relative w-[75%] mx-auto lg:w-[90%] md:w-full">
+      <div ref={ref} className="relative mx-auto w-[75%] lg:w-[90%] md:w-full">
         <motion.div
-          className="absolute left-9 top-0 w-[4px] md:w-[2px] md:left-[30px] xs:left-[20px] h-full bg-dark  origin-top rounded-full dark:bg-primaryDark dark:shadow-3xl"
+          className="absolute left-9 top-0 h-full w-[4px] origin-top rounded-full bg-dark
+          dark:bg-primaryDark dark:shadow-3xl md:left-[30px] md:w-[2px] xs:left-[20px]"
           style={{ scaleY: scrollYProgress }}
         />
-        <ul className="w-full flex flex-col items-start justify-between ml-4">
+
+        <ul className="ml-4 flex w-full flex-col items-start justify-between xs:ml-2">
           <Details
-            type="Bachelor of Science in Computer Science"
-            time="2016-2020"
-            place="Massachusetts Institute of Technology (MIT)"
-            info="Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence."
+            type="Full Stack Bootcamp"
+            time="April 2022 – Sep 2022"
+            place="UC Berkeley Extension | Completed ~80%"
+            info="Hands-on training in web development, React.js, APIs, and databases. Continued strengthening practical frontend and full-stack foundations through structured coursework and project-based learning."
           />
 
           <Details
-            type="Master of Computer Science"
-            time="2020-2022"
-            place="Stanford University"
-            info="Completed a master's project on deep learning, developing a new neural network architecture for natural language understanding."
+            type="Full Stack Development Coursework"
+            time="Jan 2021 – May 2021"
+            place="Bloom Institute of Technology | Completed ~60%"
+            info="Studied JavaScript, React, and backend fundamentals while building a stronger technical base in modern web development and application structure."
           />
 
           <Details
-            type="Online Coursework"
-            time="2016-2020"
-            place="Coursera and edX"
-            info="Completed coursework in advanced topics such as Reinforcement Learning, Computer Vision, and Machine Learning Engineering."
+            type="Coursework Toward a Bachelor’s Degree in Computer Science"
+            time="Aug 2014 – Jan 2015"
+            place="The Catholic University of America | Scholarship"
+            info="Completed early computer science coursework that contributed to foundational technical interest and long-term growth toward software and web development."
           />
         </ul>
       </div>
