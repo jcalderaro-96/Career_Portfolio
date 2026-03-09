@@ -11,12 +11,12 @@ const CustomLink = ({ href, title, className = "" }) => {
   return (
     <Link
       href={href}
-      className={`${className} rounded relative group lg:text-light lg:dark:text-dark`}
+      className={`${className} rounded relative group text-lg font-semibold lg:text-light lg:dark:text-dark`}
     >
       {title}
       <span
         className={`
-          inline-block h-[1px] bg-dark absolute left-0 -bottom-0.5
+          inline-block h-[1.5px] bg-dark absolute left-0 -bottom-1
           group-hover:w-full transition-[width] ease duration-300 dark:bg-light
           ${router.asPath === href ? "w-full" : "w-0"} lg:bg-light lg:dark:bg-dark
         `}
@@ -37,13 +37,13 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 
   return (
     <button
-      className={`${className} rounded relative group lg:text-light lg:dark:text-dark`}
+      className={`${className} rounded relative group text-2xl font-semibold lg:text-light lg:dark:text-dark`}
       onClick={handleClick}
     >
       {title}
       <span
         className={`
-          inline-block h-[1px] bg-dark absolute left-0 -bottom-0.5
+          inline-block h-[1.5px] bg-dark absolute left-0 -bottom-1
           group-hover:w-full transition-[width] ease duration-300 dark:bg-light
           ${router.asPath === href ? "w-full" : "w-0"} lg:bg-light lg:dark:bg-dark
         `}
@@ -64,8 +64,8 @@ const Navbar = () => {
 
   return (
     <header
-      className="w-full flex items-center justify-between px-32 py-8 font-medium z-10 dark:text-light
-      lg:px-16 relative z-1 md:px-12 sm:px-8"
+      className="w-full flex items-center justify-between px-32 py-10 font-medium z-10 dark:text-light
+      lg:px-16 relative z-1 md:px-12 md:py-8 sm:px-8 sm:py-6"
     >
       <button
         type="button"
@@ -76,35 +76,35 @@ const Navbar = () => {
       >
         <span className="sr-only">Open main menu</span>
         <span
-          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
-            isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+          className={`bg-dark dark:bg-light block h-0.5 w-7 rounded-sm transition-all duration-300 ease-out ${
+            isOpen ? "rotate-45 translate-y-1.5" : "-translate-y-0.5"
           }`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
+          className={`bg-dark dark:bg-light block h-0.5 w-7 rounded-sm transition-all duration-300 ease-out ${
             isOpen ? "opacity-0" : "opacity-100"
-          } my-0.5`}
+          } my-1`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block h-0.5 w-6 rounded-sm transition-all duration-300 ease-out ${
-            isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+          className={`bg-dark dark:bg-light block h-0.5 w-7 rounded-sm transition-all duration-300 ease-out ${
+            isOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-0.5"
           }`}
         ></span>
       </button>
 
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav className="flex items-center justify-center">
-          <CustomLink className="mr-4" href="/" title="Home" />
-          <CustomLink className="mx-4" href="/about" title="About" />
-          <CustomLink className="mx-4" href="/projects" title="Projects" />
-          <CustomLink className="ml-4" href="/contact" title="Contact" />
+          <CustomLink className="mr-6" href="/" title="Home" />
+          <CustomLink className="mx-6" href="/about" title="About" />
+          <CustomLink className="mx-6" href="/projects" title="Projects" />
+          <CustomLink className="ml-6" href="/contact" title="Contact" />
         </nav>
 
         <nav className="flex items-center justify-center flex-wrap lg:mt-2">
           <motion.a
             target="_blank"
             rel="noopener noreferrer"
-            className="w-6 mr-4"
+            className="w-7 mr-5"
             href="https://github.com/your-github-username"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
@@ -116,7 +116,7 @@ const Navbar = () => {
           <motion.a
             target="_blank"
             rel="noopener noreferrer"
-            className="w-6 mr-4"
+            className="w-7 mr-5"
             href="https://www.linkedin.com/in/your-linkedin-url"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
@@ -127,7 +127,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            className={`w-6 h-6 ease flex items-center justify-center rounded-full p-1
+            className={`w-8 h-8 ease flex items-center justify-center rounded-full p-1.5
               ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
             aria-label="theme-switcher"
           >
@@ -147,38 +147,38 @@ const Navbar = () => {
           initial={{ scale: 0, x: "-50%", y: "-50%", opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         >
-          <nav className="flex items-center justify-center flex-col">
+          <nav className="flex items-center justify-center flex-col gap-4">
             <CustomMobileLink
               toggle={handleClick}
-              className="lg:m-0 lg:my-2"
+              className="lg:m-0"
               href="/"
               title="Home"
             />
             <CustomMobileLink
               toggle={handleClick}
-              className="lg:m-0 lg:my-2"
+              className="lg:m-0"
               href="/about"
               title="About"
             />
             <CustomMobileLink
               toggle={handleClick}
-              className="lg:m-0 lg:my-2"
+              className="lg:m-0"
               href="/projects"
               title="Projects"
             />
             <CustomMobileLink
               toggle={handleClick}
-              className="lg:m-0 lg:my-2"
+              className="lg:m-0"
               href="/contact"
               title="Contact"
             />
           </nav>
 
-          <nav className="flex items-center justify-center mt-4">
+          <nav className="flex items-center justify-center mt-6">
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
-              className="w-6 m-2"
+              className="w-7 m-3"
               href="https://github.com/your-github-username"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}
@@ -190,7 +190,7 @@ const Navbar = () => {
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
-              className="w-6 m-2"
+              className="w-7 m-3"
               href="https://www.linkedin.com/in/your-linkedin-url"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}
@@ -201,7 +201,7 @@ const Navbar = () => {
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
-              className={`w-6 h-6 ease m-2 flex items-center justify-center rounded-full p-1
+              className={`w-8 h-8 ease m-3 flex items-center justify-center rounded-full p-1.5
                 ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
               aria-label="theme-switcher"
             >
