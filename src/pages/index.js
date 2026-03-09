@@ -40,20 +40,20 @@ function FeaturedProjectCard({ img, title, summary, link }) {
         />
       </Link>
 
-      <div className="mt-4">
+      <div className="mt-5">
         <Link href={link}>
-          <h3 className="text-xl font-bold capitalize hover:underline md:text-lg sm:text-base">
+          <h3 className="text-2xl font-bold capitalize hover:underline md:text-xl sm:text-lg">
             {title}
           </h3>
         </Link>
 
-        <p className="mt-2 text-sm font-medium text-dark/80 dark:text-light/80 sm:text-xs">
+        <p className="mt-3 text-lg font-medium leading-relaxed text-dark/80 dark:text-light/80 md:text-base sm:text-sm">
           {summary}
         </p>
 
         <Link
           href={link}
-          className="mt-4 inline-flex items-center text-base font-semibold underline underline-offset-4"
+          className="mt-4 inline-flex items-center text-lg font-semibold underline underline-offset-4 md:text-base"
         >
           View Project
         </Link>
@@ -76,24 +76,30 @@ export default function Home() {
       <main className="w-full text-dark dark:text-light">
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
           <div className="mb-10 h-px w-full bg-dark/20 dark:bg-light/30" />
+
           <section className="relative flex min-h-[72vh] w-full items-center md:min-h-fit md:py-8">
             <div className="flex w-full items-center justify-between gap-16 md:flex-col md:gap-12">
               <div className="flex w-[45%] justify-center md:w-full">
                 <div
                   className="relative w-[68%] h-max rounded-2xl border-2 border-solid border-dark
-                  bg-light p-4 dark:border-light dark:bg-dark md:w-[58%] sm:w-[72%]"
+                  bg-light p-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)] dark:border-light dark:bg-dark
+                  dark:shadow-[0_12px_30px_rgba(255,255,255,0.06)] md:w-[58%] sm:w-[72%]"
                 >
                   <div
                     className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl
                     bg-dark dark:bg-light"
                   />
-                  <Image
-                    src={profilePic}
-                    alt="Jonathan Calderaro portrait"
-                    className="h-auto w-full rounded-2xl"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                    priority
-                  />
+                  <div className="overflow-hidden rounded-2xl">
+                    <FramerImage
+                      src={profilePic}
+                      alt="Jonathan Calderaro portrait"
+                      className="h-auto w-full rounded-2xl"
+                      whileHover={{ scale: 1.03 }}
+                      transition={{ duration: 0.2 }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -155,7 +161,7 @@ export default function Home() {
                 <h2 className="text-4xl font-bold md:text-3xl sm:text-2xl">
                   Featured Projects
                 </h2>
-                <p className="mt-2 text-base font-medium text-dark/75 dark:text-light/75 md:text-sm">
+                <p className="mt-3 text-lg font-medium leading-relaxed text-dark/75 dark:text-light/75 md:text-base sm:text-sm">
                   A few selected builds and UI-focused experiments.
                 </p>
               </div>
