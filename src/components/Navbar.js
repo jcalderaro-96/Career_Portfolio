@@ -11,12 +11,12 @@ const CustomLink = ({ href, title, className = "" }) => {
   return (
     <Link
       href={href}
-      className={`${className} rounded relative group text-[1.15rem] font-semibold tracking-wide lg:text-light lg:dark:text-dark`}
+      className={`${className} rounded relative group text-3xl font-bold tracking-wide lg:text-light lg:dark:text-dark xl:text-3xl md:text-2xl`}
     >
       {title}
       <span
         className={`
-          inline-block h-[1.5px] bg-dark absolute left-0 -bottom-1
+          inline-block h-[2px] bg-dark absolute left-0 -bottom-1.5
           group-hover:w-full transition-[width] ease duration-300 dark:bg-light
           ${router.asPath === href ? "w-full" : "w-0"} lg:bg-light lg:dark:bg-dark
         `}
@@ -37,13 +37,13 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 
   return (
     <button
-      className={`${className} rounded relative group text-2xl font-semibold tracking-wide lg:text-light lg:dark:text-dark`}
+      className={`${className} rounded relative group text-3xl font-bold tracking-wide lg:text-light lg:dark:text-dark`}
       onClick={handleClick}
     >
       {title}
       <span
         className={`
-          inline-block h-[1.5px] bg-dark absolute left-0 -bottom-1
+          inline-block h-[2px] bg-dark absolute left-0 -bottom-1.5
           group-hover:w-full transition-[width] ease duration-300 dark:bg-light
           ${router.asPath === href ? "w-full" : "w-0"} lg:bg-light lg:dark:bg-dark
         `}
@@ -77,36 +77,36 @@ const Navbar = () => {
         >
           <span className="sr-only">Open main menu</span>
           <span
-            className={`bg-dark dark:bg-light block h-0.5 w-7 rounded-sm transition-all duration-300 ease-out ${
-              isOpen ? "rotate-45 translate-y-1.5" : "-translate-y-0.5"
+            className={`bg-dark dark:bg-light block h-0.5 w-8 rounded-sm transition-all duration-300 ease-out ${
+              isOpen ? "rotate-45 translate-y-2" : "-translate-y-0.5"
             }`}
           ></span>
           <span
-            className={`bg-dark dark:bg-light block h-0.5 w-7 rounded-sm transition-all duration-300 ease-out ${
+            className={`bg-dark dark:bg-light block h-0.5 w-8 rounded-sm transition-all duration-300 ease-out ${
               isOpen ? "opacity-0" : "opacity-100"
-            } my-1`}
+            } my-1.5`}
           ></span>
           <span
-            className={`bg-dark dark:bg-light block h-0.5 w-7 rounded-sm transition-all duration-300 ease-out ${
-              isOpen ? "-rotate-45 -translate-y-1.5" : "translate-y-0.5"
+            className={`bg-dark dark:bg-light block h-0.5 w-8 rounded-sm transition-all duration-300 ease-out ${
+              isOpen ? "-rotate-45 -translate-y-2" : "translate-y-0.5"
             }`}
           ></span>
         </button>
 
         <div className="w-full flex justify-between items-center lg:hidden">
           <nav className="flex items-center justify-center">
-            <CustomLink className="mr-7" href="/" title="Home" />
-            <CustomLink className="mx-7" href="/about" title="About" />
-            <CustomLink className="mx-7" href="/projects" title="Projects" />
-            <CustomLink className="mx-7" href="/contact" title="Contact" />
-            <CustomLink className="ml-7" href="/articles" title="Articles" />
+            <CustomLink className="mr-8" href="/" title="Home" />
+            <CustomLink className="mx-8" href="/about" title="About" />
+            <CustomLink className="mx-8" href="/projects" title="Projects" />
+            <CustomLink className="mx-8" href="/contact" title="Contact" />
+            <CustomLink className="ml-8" href="/articles" title="Articles" />
           </nav>
 
           <nav className="flex items-center justify-center flex-wrap lg:mt-2">
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
-              className="w-7 mr-5"
+              className="w-14 mr-8"
               href="https://github.com/your-github-username"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}
@@ -118,7 +118,7 @@ const Navbar = () => {
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
-              className="w-7 mr-5"
+              className="w-14 mr-8"
               href="https://www.linkedin.com/in/your-linkedin-url"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.9 }}
@@ -129,7 +129,7 @@ const Navbar = () => {
 
             <button
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
-              className={`w-8 h-8 ease flex items-center justify-center rounded-full p-1.5
+              className={`w-14 h-14 ease flex items-center justify-center rounded-full p-3
                 ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
               aria-label="theme-switcher"
             >
@@ -149,7 +149,7 @@ const Navbar = () => {
             initial={{ scale: 0, x: "-50%", y: "-50%", opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
           >
-            <nav className="flex items-center justify-center flex-col gap-4">
+            <nav className="flex items-center justify-center flex-col gap-5">
               <CustomMobileLink
                 toggle={handleClick}
                 className="lg:m-0"
@@ -182,11 +182,11 @@ const Navbar = () => {
               />
             </nav>
 
-            <nav className="flex items-center justify-center mt-6">
+            <nav className="flex items-center justify-center mt-8">
               <motion.a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 m-3"
+                className="w-10 m-4"
                 href="https://github.com/your-github-username"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.9 }}
@@ -198,7 +198,7 @@ const Navbar = () => {
               <motion.a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 m-3"
+                className="w-10 m-4"
                 href="https://www.linkedin.com/in/your-linkedin-url"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.9 }}
@@ -209,7 +209,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => setMode(mode === "light" ? "dark" : "light")}
-                className={`w-8 h-8 ease m-3 flex items-center justify-center rounded-full p-1.5
+                className={`w-10 h-10 ease m-4 flex items-center justify-center rounded-full p-2
                   ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
                 aria-label="theme-switcher"
               >
@@ -223,8 +223,6 @@ const Navbar = () => {
           </motion.div>
         ) : null}
       </header>
-
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-dark/30 to-transparent dark:via-light/30" />
     </>
   );
 };

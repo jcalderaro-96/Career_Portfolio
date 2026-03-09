@@ -75,6 +75,7 @@ export default function Home() {
 
       <main className="w-full text-dark dark:text-light">
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
+          <div className="mb-10 h-px w-full bg-dark/20 dark:bg-light/30" />
           <section className="relative flex min-h-[72vh] w-full items-center md:min-h-fit md:py-8">
             <div className="flex w-full items-center justify-between gap-16 md:flex-col md:gap-12">
               <div className="flex w-[45%] justify-center md:w-full">
