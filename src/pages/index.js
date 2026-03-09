@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import lightBulb from "../../public/images/svgs/miscellaneous_icons_1.svg";
 import profilePic from "../../public/images/profile/developer-pic-1.png";
-import TransitionEffect from "@/components/TransitionEffect";
 
 export default function Home() {
   return (
@@ -18,8 +17,6 @@ export default function Home() {
           content="Portfolio of Jonathan Calderaro, a junior frontend developer building responsive web applications with JavaScript, React, Next.js, and modern UI tools."
         />
       </Head>
-
-      <TransitionEffect />
 
       <article className="flex min-h-screen items-center text-dark dark:text-light sm:items-start">
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">

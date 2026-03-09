@@ -1,6 +1,5 @@
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
-import TransitionEffect from "@/components/TransitionEffect";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -14,8 +13,6 @@ export default function Contact() {
           content="Contact Jonathan Calderaro for frontend development opportunities, project discussions, and professional inquiries."
         />
       </Head>
-
-      <TransitionEffect />
 
       <main className="flex w-full flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
