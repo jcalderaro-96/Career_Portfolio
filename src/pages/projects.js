@@ -9,20 +9,17 @@ import Link from "next/link";
 import proj1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
 import proj2 from "../../public/images/projects/nft-collection-website-cover-image.jpg";
 import proj3 from "../../public/images/projects/fashion-studio-website.jpg";
-import proj4 from "../../public/images/projects/portfolio-cover-image.jpg";
-import proj5 from "../../public/images/projects/agency-website-cover-image.jpg";
-import proj6 from "../../public/images/projects/devdreaming.jpg";
 
 const FramerImage = motion(Image);
 
 const CapstoneProject = ({ type, title, summary, img, link, github }) => {
   return (
     <article
-      className="relative flex w-full items-center justify-between rounded-3xl rounded-br-2xl
-      border border-solid border-dark bg-light p-10
+      className="relative mx-auto flex w-[88%] items-center justify-between rounded-3xl rounded-br-2xl
+      border border-solid border-dark bg-light p-8
       shadow-[0_12px_30px_rgba(0,0,0,0.12)] dark:border-light dark:bg-dark
       dark:shadow-[0_12px_30px_rgba(255,255,255,0.05)]
-      lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4"
+      lg:w-full lg:flex-col lg:p-6 xs:rounded-2xl xs:rounded-br-3xl xs:p-4"
     >
       <div
         className="absolute top-0 -right-3 -z-10 h-[103%] w-[101%] rounded-[2.5rem] rounded-br-3xl
@@ -32,7 +29,7 @@ const CapstoneProject = ({ type, title, summary, img, link, github }) => {
       <Link
         href={link}
         target="_blank"
-        className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
+        className="w-[48%] cursor-pointer overflow-hidden rounded-lg lg:w-full"
       >
         <FramerImage
           src={img}
@@ -47,8 +44,8 @@ const CapstoneProject = ({ type, title, summary, img, link, github }) => {
         />
       </Link>
 
-      <div className="flex w-1/2 flex-col items-start justify-between pl-8 lg:w-full lg:pl-0 lg:pt-6">
-        <span className="text-lg font-semibold text-primary dark:text-primaryDark md:text-base">
+      <div className="flex w-[52%] flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-5">
+        <span className="text-base font-semibold text-primary dark:text-primaryDark md:text-sm">
           {type}
         </span>
 
@@ -57,12 +54,12 @@ const CapstoneProject = ({ type, title, summary, img, link, github }) => {
           target="_blank"
           className="underline-offset-4 hover:underline"
         >
-          <h2 className="my-3 w-full text-left text-4xl font-bold lg:text-3xl sm:text-2xl">
+          <h2 className="my-3 w-full text-left text-3xl font-bold lg:text-2xl sm:text-xl">
             {title}
           </h2>
         </Link>
 
-        <p className="my-2 text-lg font-medium leading-relaxed text-dark/80 dark:text-light/80 md:text-base sm:text-sm">
+        <p className="my-2 text-base font-medium leading-relaxed text-dark/80 dark:text-light/80 md:text-sm">
           {summary}
         </p>
 
@@ -70,7 +67,7 @@ const CapstoneProject = ({ type, title, summary, img, link, github }) => {
           <Link
             href={github}
             target="_blank"
-            className="w-10"
+            className="w-9"
             aria-label={`${title} github link`}
           >
             <GithubIcon />
@@ -79,8 +76,8 @@ const CapstoneProject = ({ type, title, summary, img, link, github }) => {
           <Link
             href={link}
             target="_blank"
-            className="ml-4 rounded-lg bg-dark px-6 py-2 text-lg font-semibold text-light
-            dark:bg-light dark:text-dark sm:px-4 sm:text-base"
+            className="ml-4 rounded-lg bg-dark px-5 py-2 text-base font-semibold text-light
+            dark:bg-light dark:text-dark sm:px-4 sm:text-sm"
             aria-label={title}
           >
             Visit Project
@@ -94,10 +91,10 @@ const CapstoneProject = ({ type, title, summary, img, link, github }) => {
 const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   return (
     <article
-      className="relative flex w-full flex-col items-center justify-center rounded-2xl rounded-br-2xl
-      border border-solid border-dark bg-light p-6
+      className="relative mx-auto flex w-[92%] flex-col items-center justify-center rounded-2xl rounded-br-2xl
+      border border-solid border-dark bg-light p-5
       shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:border-light dark:bg-dark
-      dark:shadow-[0_8px_24px_rgba(255,255,255,0.04)] xs:p-4"
+      dark:shadow-[0_8px_24px_rgba(255,255,255,0.04)] xs:w-full xs:p-4"
     >
       <div
         className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl
@@ -121,8 +118,8 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
         />
       </Link>
 
-      <div className="mt-5 flex w-full flex-col items-start justify-between">
-        <span className="text-base font-semibold text-primary dark:text-primaryDark">
+      <div className="mt-4 flex w-full flex-col items-start justify-between">
+        <span className="text-sm font-semibold text-primary dark:text-primaryDark">
           {type}
         </span>
 
@@ -131,12 +128,12 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
           target="_blank"
           className="underline-offset-4 hover:underline"
         >
-          <h2 className="my-2 w-full text-left text-2xl font-bold lg:text-xl">
+          <h2 className="my-2 w-full text-left text-xl font-bold lg:text-lg">
             {title}
           </h2>
         </Link>
 
-        <p className="mt-2 text-base font-medium leading-relaxed text-dark/80 dark:text-light/80 sm:text-sm">
+        <p className="mt-2 text-sm font-medium leading-relaxed text-dark/80 dark:text-light/80">
           {summary}
         </p>
 
@@ -144,7 +141,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
           <Link
             href={link}
             target="_blank"
-            className="text-lg font-semibold underline underline-offset-4 md:text-base"
+            className="text-base font-semibold underline underline-offset-4 md:text-sm"
             aria-label={title}
           >
             Visit Project
@@ -153,7 +150,7 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
           <Link
             href={github}
             target="_blank"
-            className="w-8 md:w-6"
+            className="w-7 md:w-6"
             aria-label={`${title} github link`}
           >
             <GithubIcon />
@@ -249,7 +246,7 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="grid w-full grid-cols-2 gap-10 lg:grid-cols-1">
+            <div className="grid w-full grid-cols-2 gap-8 lg:grid-cols-1">
               <FeaturedProject
                 type="Featured Build"
                 title="Secondary Project Placeholder One"
