@@ -31,7 +31,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="flex w-1/2 flex-col items-center self-center lg:w-full lg:text-center">
+            <div className="flex w-1/2 flex-col items-start self-center lg:w-full lg:items-center lg:text-center">
               <AnimatedText
                 text="Jonathan Calderaro"
                 className="!text-left !text-6xl xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl"
@@ -41,12 +41,12 @@ export default function Home() {
                 Junior Frontend Developer
               </h1>
 
-              <p className="my-4 text-base font-medium md:text-sm sm:!text-xs">
+              <p className="my-4 w-full text-left text-base font-medium md:text-sm sm:!text-xs lg:text-center">
                 I build responsive web applications using JavaScript, React,
                 Next.js, and modern frontend tools.
               </p>
 
-              <p className="mb-6 text-base font-medium md:text-sm sm:!text-xs">
+              <p className="mb-6 w-full text-left text-base font-medium md:text-sm sm:!text-xs lg:text-center">
                 I’m focused on creating clean user experiences, strengthening my
                 full-stack skills, and building projects that reflect real
                 development work.
