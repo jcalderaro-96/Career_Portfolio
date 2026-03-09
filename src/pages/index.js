@@ -14,20 +14,22 @@ import featuredProject2 from "../../public/images/articles/create loading screen
 
 const FramerImage = motion(Image);
 
-function FeaturedProjectCard({ img, title, summary, link }) {
+const HomeFeaturedProject = ({ type, title, summary, img, link }) => {
   return (
-    <li
-      className="relative w-full rounded-2xl border border-solid border-dark bg-light p-4
-      dark:border-light dark:bg-dark"
+    <article
+      className="relative mx-auto flex w-[92%] flex-col items-center justify-center rounded-2xl rounded-br-2xl
+      border border-solid border-dark bg-light p-5
+      shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:border-light dark:bg-dark
+      dark:shadow-[0_8px_24px_rgba(255,255,255,0.04)] xs:w-full xs:p-4"
     >
       <div
         className="absolute top-0 -right-3 -z-10 h-[103%] w-[102%] rounded-[2rem] rounded-br-3xl
-        bg-dark dark:bg-light"
+        bg-dark dark:bg-light md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]"
       />
 
       <Link
         href={link}
-        className="inline-block w-full overflow-hidden rounded-lg"
+        className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage
           src={img}
@@ -35,32 +37,40 @@ function FeaturedProjectCard({ img, title, summary, link }) {
           className="h-auto w-full"
           whileHover={{ scale: 1.03 }}
           transition={{ duration: 0.2 }}
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
           priority
         />
       </Link>
 
-      <div className="mt-5">
-        <Link href={link}>
-          <h3 className="text-2xl font-bold capitalize hover:underline md:text-xl sm:text-lg">
+      <div className="mt-4 flex w-full flex-col items-start justify-between">
+        <span className="text-sm font-semibold text-primary dark:text-primaryDark">
+          {type}
+        </span>
+
+        <Link href={link} className="underline-offset-4 hover:underline">
+          <h3 className="my-2 w-full text-left text-xl font-bold lg:text-lg">
             {title}
           </h3>
         </Link>
 
-        <p className="mt-3 text-lg font-medium leading-relaxed text-dark/80 dark:text-light/80 md:text-base sm:text-sm">
+        <p className="mt-2 text-sm font-medium leading-relaxed text-dark/80 dark:text-light/80">
           {summary}
         </p>
 
-        <Link
-          href={link}
-          className="mt-4 inline-flex items-center text-lg font-semibold underline underline-offset-4 md:text-base"
-        >
-          View Project
-        </Link>
+        <div className="mt-4 flex w-full items-center justify-between">
+          <Link
+            href={link}
+            className="text-base font-semibold underline underline-offset-4 md:text-sm"
+          >
+            View Project
+          </Link>
+        </div>
       </div>
-    </li>
+    </article>
   );
-}
+};
 
 export default function Home() {
   return (
@@ -175,19 +185,25 @@ export default function Home() {
             </div>
 
             <ul className="grid w-full grid-cols-2 gap-8 md:grid-cols-1">
-              <FeaturedProjectCard
-                img={featuredProject1}
-                title="React pagination component"
-                summary="A focused frontend build exploring reusable UI structure, state handling, and clean component design in React."
-                link="/projects"
-              />
+              <li>
+                <HomeFeaturedProject
+                  type="Featured Build"
+                  img={featuredProject1}
+                  title="React Pagination Component"
+                  summary="A focused frontend build exploring reusable UI structure, state handling, and clean component design in React."
+                  link="/projects"
+                />
+              </li>
 
-              <FeaturedProjectCard
-                img={featuredProject2}
-                title="Custom loading screen patterns"
-                summary="An interface experiment centered on user feedback, visual polish, and responsive loading states in modern React apps."
-                link="/projects"
-              />
+              <li>
+                <HomeFeaturedProject
+                  type="Featured Build"
+                  img={featuredProject2}
+                  title="Custom Loading Screen Patterns"
+                  summary="An interface experiment centered on user feedback, visual polish, and responsive loading states in modern React apps."
+                  link="/projects"
+                />
+              </li>
             </ul>
           </section>
         </Layout>
