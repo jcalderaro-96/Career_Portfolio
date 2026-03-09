@@ -11,7 +11,7 @@ const CustomLink = ({ href, title, className = "" }) => {
   return (
     <Link
       href={href}
-      className={`${className} rounded relative group text-3xl font-bold tracking-wide lg:text-light lg:dark:text-dark xl:text-3xl md:text-2xl`}
+      className={`${className} rounded relative group text-3xl font-bold tracking-wide lg:text-light lg:dark:text-dark xl:text-[1.9rem] md:text-2xl`}
     >
       {title}
       <span
@@ -99,17 +99,17 @@ const Navbar = () => {
             <CustomLink className="mx-8" href="/about" title="About" />
             <CustomLink className="mx-8" href="/projects" title="Projects" />
             <CustomLink className="mx-8" href="/contact" title="Contact" />
-            <CustomLink className="ml-8" href="/articles" title="Articles" />
           </nav>
 
           <nav className="flex items-center justify-center flex-wrap lg:mt-2">
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
+              title="GitHub"
               className="w-14 mr-8"
               href="https://github.com/your-github-username"
               whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.95 }}
               aria-label="Visit my GitHub profile"
             >
               <GithubIcon />
@@ -118,16 +118,22 @@ const Navbar = () => {
             <motion.a
               target="_blank"
               rel="noopener noreferrer"
+              title="LinkedIn"
               className="w-14 mr-8"
               href="https://www.linkedin.com/in/your-linkedin-url"
               whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
+              whileTap={{ scale: 0.95 }}
               aria-label="Visit my LinkedIn profile"
             >
               <LinkedInIcon />
             </motion.a>
 
             <button
+              title={
+                mode === "light"
+                  ? "Switch to dark mode"
+                  : "Switch to light mode"
+              }
               onClick={() => setMode(mode === "light" ? "dark" : "light")}
               className={`w-14 h-14 ease flex items-center justify-center rounded-full p-3
                 ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
@@ -174,22 +180,17 @@ const Navbar = () => {
                 href="/contact"
                 title="Contact"
               />
-              <CustomMobileLink
-                toggle={handleClick}
-                className="lg:m-0"
-                href="/articles"
-                title="Articles"
-              />
             </nav>
 
             <nav className="flex items-center justify-center mt-8">
               <motion.a
                 target="_blank"
                 rel="noopener noreferrer"
+                title="GitHub"
                 className="w-10 m-4"
                 href="https://github.com/your-github-username"
                 whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.95 }}
                 aria-label="Visit my GitHub profile"
               >
                 <GithubIcon />
@@ -198,16 +199,22 @@ const Navbar = () => {
               <motion.a
                 target="_blank"
                 rel="noopener noreferrer"
+                title="LinkedIn"
                 className="w-10 m-4"
                 href="https://www.linkedin.com/in/your-linkedin-url"
                 whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.95 }}
                 aria-label="Visit my LinkedIn profile"
               >
                 <LinkedInIcon />
               </motion.a>
 
               <button
+                title={
+                  mode === "light"
+                    ? "Switch to dark mode"
+                    : "Switch to light mode"
+                }
                 onClick={() => setMode(mode === "light" ? "dark" : "light")}
                 className={`w-10 h-10 ease m-4 flex items-center justify-center rounded-full p-2
                   ${mode === "light" ? "bg-dark text-light" : "bg-light text-dark"}`}
