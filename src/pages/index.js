@@ -20,10 +20,10 @@ export default function Home() {
 
       <article className="flex min-h-screen items-center text-dark dark:text-light sm:items-start">
         <Layout className="!pt-0 md:!pt-16 sm:!pt-16">
-          <div className="flex w-full items-start justify-between md:flex-col md:gap-12">
+          <div className="flex w-full items-center justify-between gap-12 md:flex-col md:gap-12">
             <div className="flex w-1/2 justify-center lg:hidden md:inline-block md:w-full">
               <div
-                className="relative w-[80%] h-max rounded-2xl border-2 border-solid border-dark 
+                className="relative w-[68%] h-max rounded-2xl border-2 border-solid border-dark 
                 bg-light p-4 dark:border-light dark:bg-dark"
               >
                 <div
